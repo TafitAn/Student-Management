@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="anchorpane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="634.0" prefWidth="1100.0" style="-fx-background-color: #E8E8E8;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="school.studentmanagement.Controller">
+   <children>
+      <ImageView fitHeight="634.0" fitWidth="556.0" layoutX="431.0" pickOnBounds="true" AnchorPane.leftAnchor="431.0" AnchorPane.rightAnchor="129.0">
+         <image>
+            <Image url="@4.png" />
+         </image></ImageView>
+      <HBox layoutX="176.0" layoutY="26.0" prefHeight="41.0" prefWidth="314.0" spacing="60.0" stylesheets="@style.css" AnchorPane.topAnchor="20.0">
+         <children>
+            <Button fx:id="classBtn" mnemonicParsing="false" onAction="#handleButton" prefHeight="41.0" prefWidth="94.0" styleClass="blankB" stylesheets="@style.css">
+               <graphic>
+                  <Label text="Classe" textFill="#595959">
+                     <font>
+                        <Font name="Chicken Quiche" size="20.0" />
+                     </font>
+                  </Label>
+               </graphic>
+            </Button>
+            <Button fx:id="matBtn" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleButton" prefHeight="41.0" prefWidth="94.0" styleClass="blankB" stylesheets="@style.css" text="Button" HBox.hgrow="ALWAYS">
+               <graphic>
+                  <Label text="Matiere" textFill="#595959">
+                     <font>
+                        <Font name="Chicken Quiche" size="20.0" />
+                     </font>
+                  </Label>
+               </graphic>
+            </Button>
+            <FontAwesomeIcon fill="#5a5a5a" iconName="SEARCH" size="25" wrappingWidth="16.0">
+               <HBox.margin>
+                  <Insets top="8.0" />
+               </HBox.margin>
+            </FontAwesomeIcon>
+         </children>
+      </HBox>
+      <ImageView fitHeight="80.0" fitWidth="100.0" layoutX="36.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="36.0" AnchorPane.topAnchor="10.0">
+         <image>
+            <Image url="@s2.png" />
+         </image>
+      </ImageView>
+      <Pane layoutX="967.0" prefHeight="634.0" prefWidth="132.0" style="-fx-background-color: #595959;" AnchorPane.leftAnchor="984.0">
+         <children>
+            <HBox alignment="TOP_RIGHT" layoutX="20.0" prefHeight="28.0" prefWidth="110.0">
+               <children>
+                  <Button fx:id="minimButn" mnemonicParsing="false" onAction="#minimizeButton" styleClass="minimB" stylesheets="@style.css">
+                     <graphic>
+                        <ImageView fitHeight="31.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@cl.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="Closebtn" layoutX="54.0" layoutY="10.0" mnemonicParsing="false" onAction="#closeButton" stylesheets="@style.css">
+                     <graphic>
+                        <ImageView fitHeight="31.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@ext.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </HBox>
+            <Button id="bulletin" fx:id="bulletinB" layoutY="126.0" mnemonicParsing="false" onAction="#handleButton" prefHeight="41.0" prefWidth="132.0" stylesheets="@style.css" visible="false">
+               <graphic>
+                  <ImageView fitHeight="33.0" fitWidth="86.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@buull.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </Pane>
+      <HBox layoutX="496.0" layoutY="20.0" prefHeight="41.0" prefWidth="290.0">
+         <children>
+            <TextField fx:id="keywordT" prefHeight="25.0" prefWidth="220.0" promptText="SEARCH" styleClass="textfield-design" stylesheets="@style.css">
+               <HBox.margin>
+                  <Insets top="8.0" />
+               </HBox.margin>
+            </TextField>
+            <Button fx:id="clearSearch" alignment="CENTER" mnemonicParsing="false" onAction="#handleButton" opacity="0.69" prefHeight="24.0" prefWidth="28.0" styleClass="blankB" stylesheets="@style.css" visible="false">
+               <HBox.margin>
+                  <Insets top="8.0" />
+               </HBox.margin>
+               <graphic>
+                  <FontAwesomeIcon fill="#5a5a5a" iconName="TIMES" />
+               </graphic>
+            </Button>
+         </children>
+      </HBox>
+      <AnchorPane fx:id="anchor" layoutX="170.0" layoutY="68.0" prefHeight="355.0" prefWidth="646.0" style="-fx-background-color: transparent;" visible="false">
+         <children>
+            <TableView fx:id="studenTable" prefHeight="355.0" prefWidth="646.0" stylesheets="@mat.css">
+              <columns>
+                  <TableColumn fx:id="numCol" minWidth="0.0" prefWidth="57.0" style="-fx-background-color: transparent;" text="Numéro" />
+                <TableColumn fx:id="nomCol" prefWidth="512.0" style="-fx-background-color: transparent;" text="Nom" />
+                <TableColumn fx:id="nivCol" minWidth="0.0" prefWidth="51.0" style="-fx-background-color: transparent;" text="Niveau" />
+              </columns>
+            </TableView>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="Bulletin" layoutX="1.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="634.0" prefWidth="1100.0" style="-fx-background-color: #E8E8E8;" visible="false">
+         <children>
+            <Label layoutX="309.0" layoutY="25.0" prefHeight="17.0" prefWidth="381.0" text="BULLETIN DES NOTES" textFill="#5a5a5a">
+               <font>
+                  <Font name="Chicken Quiche" size="41.0" />
+               </font>
+            </Label>
+            <Pane layoutX="965.0" prefHeight="634.0" prefWidth="135.0" style="-fx-background-color: #595959;" AnchorPane.leftAnchor="984.0" AnchorPane.rightAnchor="0.0">
+               <children>
+                  <Button id="closebtn1" fx:id="Closebtn1" layoutX="1.0" layoutY="27.0" minHeight="21.0" minWidth="53.0" mnemonicParsing="false" onAction="#handleButton" prefHeight="50.0" prefWidth="132.0" stylesheets="@mat.css">
+                     <graphic>
+                        <ImageView fitHeight="47.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@icons8_Sign_Out_32px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </Pane>
+            <Pane layoutX="101.0" layoutY="109.0">
+               <children>
+                  <Label layoutY="3.0" prefHeight="22.0" prefWidth="101.0" text="N° Etudiant:" textFill="#5a5a5a">
+                     <font>
+                        <Font name="Chicken Quiche" size="19.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="idLabel" layoutX="108.0" prefHeight="27.0" prefWidth="35.0" text="1" textFill="#5a5a5a">
+                     <font>
+                        <Font name="Comic Sans MS" size="19.0" />
+                     </font>
+                  </Label>
+                  <HBox layoutY="39.0" prefHeight="36.0" prefWidth="629.0">
+                     <children>
+                        <Label prefHeight="22.0" prefWidth="93.0" text="Nom:" textFill="#5a5a5a">
+                           <font>
+                              <Font name="Chicken Quiche" size="19.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets top="3.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Label fx:id="nomLabel" layoutX="10.0" layoutY="10.0" prefHeight="22.0" prefWidth="533.0" text="Student name" textFill="#5a5a5a">
+                           <font>
+                              <Font name="Comic Sans MS" size="14.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets top="3.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox layoutX="629.0" layoutY="39.0" prefHeight="41.0" prefWidth="229.0">
+                     <children>
+                        <Label prefHeight="22.0" prefWidth="77.0" text="Niveau:" textFill="#5a5a5a">
+                           <font>
+                              <Font name="Chicken Quiche" size="19.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets top="3.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Label fx:id="niveauLabel" layoutX="10.0" layoutY="10.0" prefHeight="22.0" prefWidth="77.0" text="M1" textFill="#5a5a5a">
+                           <font>
+                              <Font name="Comic Sans MS" size="19.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+               </children>
+            </Pane>
+            <Pane layoutX="99.0" layoutY="217.0">
+               <children>
+                  <ScrollPane layoutY="41.0" prefHeight="182.0" prefWidth="754.0" style="-fx-background-color: transparent; -fx-border-color: #000000;">
+                     <content>
+                        <VBox fx:id="noteList" prefHeight="169.0" prefWidth="721.0" />
+                     </content>
+                  </ScrollPane>
+                  <HBox prefHeight="41.0" prefWidth="754.0" style="-fx-background-color: #97E9EF; -fx-border-color: #000000;">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="41.0" prefWidth="347.0" text="Designation">
+                           <font>
+                              <Font name="Chicken Quiche" size="16.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="41.0" prefWidth="129.0" text="Coef">
+                           <font>
+                              <Font name="Chicken Quiche" size="16.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="357.0" layoutY="10.0" prefHeight="41.0" prefWidth="129.0" text="Note">
+                           <font>
+                              <Font name="Chicken Quiche" size="17.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="486.0" layoutY="10.0" prefHeight="41.0" prefWidth="129.0" text="Note ponderée">
+                           <font>
+                              <Font name="Chicken Quiche" size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <Pane layoutX="458.0" layoutY="225.0" prefHeight="96.0" prefWidth="294.0">
+                     <children>
+                        <VBox prefHeight="80.0" prefWidth="154.0">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="39.0" prefWidth="140.0" style="-fx-border-color: #000000;" text="Moyenne">
+                                 <font>
+                                    <Font name="Chicken Quiche" size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="39.0" prefWidth="140.0" style="-fx-border-color: #000000;" text="Obsérvation">
+                                 <font>
+                                    <Font name="Chicken Quiche" size="20.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <VBox layoutX="139.0" prefHeight="80.0" prefWidth="154.0">
+                           <children>
+                              <Label fx:id="moyenneLabel" alignment="CENTER" prefHeight="39.0" prefWidth="140.0" style="-fx-border-color: #000000;" text="-">
+                                 <font>
+                                    <Font name="Comic Sans MS" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="obsLabel" alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="39.0" prefWidth="140.0" style="-fx-border-color: #000000;" text="-">
+                                 <font>
+                                    <Font name="Comic Sans MS" size="12.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                     </children>
+                  </Pane>
+               </children>
+            </Pane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
